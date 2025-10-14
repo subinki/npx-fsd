@@ -35,6 +35,42 @@
 			</parameter>
 		</ip_instance>
 
+		<gpio>
+     		  <name>gpio0</name>
+		  <width>1</width>
+	  	</gpio>
+
+		<signal>
+     		  <name>xa_p0</name>
+     		  <width>1</width>
+     		  <port>input</port>
+     		  <user_dependent/>
+	  	</signal>
+
+		<signal>
+                  <name>xa_n0</name>
+                  <width>1</width>
+                  <port>input</port>
+                  <user_dependent/>
+	  	</signal>
+
+		<ip_instance>
+                        <name>i_xadc_wiz_0</name>
+                        <library_name>user_slaveif_axi4l_clkin</library_name>
+                        <parameter>
+                                <id>SIZE_OF_MEMORYMAP</id>
+                                <value>0x1000</value>
+                        </parameter>
+                        <parameter>
+                                <id>BW_ADDR</id>
+                                <value>32</value>
+                        </parameter>
+                        <parameter>
+                                <id>BW_DATA</id>
+                                <value>32</value>
+                        </parameter>
+                </ip_instance>
+
 		<clock_info>
 			<define>
 				<name>clk_system</name>
@@ -53,9 +89,9 @@
 
 		<sw_define>
 			<use_reuse_memory_allocator type="bool">True</use_reuse_memory_allocator>
-      <caching_most type="bool">False</caching_most>
-      <use_profiling type="bool">False</use_profiling>
-      <silent_for_profiling type="bool">False</silent_for_profiling>
+      			<caching_most type="bool">False</caching_most>
+      			<use_profiling type="bool">False</use_profiling>
+      			<silent_for_profiling type="bool">False</silent_for_profiling>
 		</sw_define>
 
 		<sim_define>

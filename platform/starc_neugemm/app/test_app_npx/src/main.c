@@ -11,7 +11,8 @@
 
 #define FNAME_MAX 256
 
-char app_name[FNAME_MAX] = "mnist_app";
+//char app_name[FNAME_MAX] = "mnist_app";
+char app_name[FNAME_MAX] = "ffd_app";
 
 char net_fname[FNAME_MAX];
 char opt_fname[FNAME_MAX];
