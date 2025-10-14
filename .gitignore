@@ -22,3 +22,26 @@ install_second
 manual
 
 !sync/rvx_*.tar.gz
+
+# ====================================================
+# FPGA / Vivado build artifacts (local ignore rules)
+# ====================================================
+*.dcp
+*.bit
+*.bin
+*.str
+*.rpx
+*.rpt
+*.jou
+*.log
+*.pb
+
+# Implementation results
+platform/**/imp_*/
+
+# Temp / build
+build/
+out/
+__pycache__/
+.vscode/
+.idea/
