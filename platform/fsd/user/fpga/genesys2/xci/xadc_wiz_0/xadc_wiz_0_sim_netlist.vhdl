@@ -2,10 +2,10 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
--- Date        : Mon Sep 22 19:12:43 2025
+-- Date        : Tue Oct 21 09:42:20 2025
 -- Host        : subinki running 64-bit Red Hat Enterprise Linux release 8.10 (Ootpa)
 -- Command     : write_vhdl -force -mode funcsim
---               /home/subinki/NPX/npx-tutorials/platform/starc_neugemm/user/fpga/genesys2/xci/xadc_wiz_0/xadc_wiz_0_sim_netlist.vhdl
+--               /home/subinki/NPX/npx-tutorials/platform/fsd/user/fpga/genesys2/xci/xadc_wiz_0/xadc_wiz_0_sim_netlist.vhdl
 -- Design      : xadc_wiz_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.

@@ -2,10 +2,10 @@
 // Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-// Date        : Mon Sep 22 19:12:43 2025
+// Date        : Tue Oct 21 09:42:20 2025
 // Host        : subinki running 64-bit Red Hat Enterprise Linux release 8.10 (Ootpa)
 // Command     : write_verilog -force -mode synth_stub
-//               /home/subinki/NPX/npx-tutorials/platform/starc_neugemm/user/fpga/genesys2/xci/xadc_wiz_0/xadc_wiz_0_stub.v
+//               /home/subinki/NPX/npx-tutorials/platform/fsd/user/fpga/genesys2/xci/xadc_wiz_0/xadc_wiz_0_stub.v
 // Design      : xadc_wiz_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7k325tffg900-2
