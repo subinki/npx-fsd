@@ -31,7 +31,7 @@ PLATFORM_DIR = $(call absolute_path,${CURDIR}/../..)
 
 UTIL_DIR = ${PLATFORM_DIR}/util
 FAKEFIE_DIR = ${UTIL_DIR}/fakefile
-RESULT_DIR = ${UTIL_DIR}/generated/ssw
+RESULT_DIR = ${UTIL_DIR}/generated/ssw/npx
 SSW_INFO_FILE = ${PLATFORM_DIR}/arch/ssw/src/ssw_info.h
 
 ifndef APP_CFG_DIR
@@ -111,7 +111,7 @@ $(addsuffix .opt, ${ALL_APP_CFG_NAME_LIST}):%.opt:
 
 $(addsuffix .file_gen, ${ALL_APP_CFG_NAME_LIST}):%.file_gen: %.api_clean
 	cd ${UTIL_DIR} && make fakefile
-	cd ${FAKEFIE_DIR} && make generated_ssw_mkdir
+	cd ${FAKEFIE_DIR} && make generated_ssw_mkdir RESULT_DIR=${RESULT_DIR}
 	cd ${FAKEFIE_DIR} && make convert FILE_LIST="${APP_CFG_DIR_ABS}/$(*)_preprocess.cfg" RESULT_DIR=${RESULT_DIR}
 	cd ${FAKEFIE_DIR} && make convert FILE_LIST="${PARA_DIR_ABS}/$(*)/riscv/$(*)*.bin" RESULT_DIR=${RESULT_DIR}
 	cd ${FAKEFIE_DIR} && make convert FILE_LIST="${PARA_DIR_ABS}/$(*)/riscv/$(*)*.cfg" RESULT_DIR=${RESULT_DIR}

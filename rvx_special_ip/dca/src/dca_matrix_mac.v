@@ -11,7 +11,7 @@
 // IN ANY FORM, BY ANY MEANS, IN WHOLE OR IN PART, WITHOUT THE
 // COMPLETE PRIOR WRITTEN PERMISSION OF ETRI.
 // ****************************************************************************
-// 2025-08-27
+// 2025-11-05
 // Kyuseung Han (han@etri.re.kr)
 // ****************************************************************************
 // ****************************************************************************
@@ -116,17 +116,17 @@ parameter TENSOR_PARA = 0;
 
 localparam  LSU_PARA = 0;
 
-localparam  DCA_LPARA_03 = 1;
+localparam  DCA_LPARA_06 = 1;
 localparam  DCA_LPARA_00 = `BW_DCA_MATRIX_MAC_STATUS;
-localparam  DCA_LPARA_07 = `BW_DCA_MATRIX_MAC_LOG;
-localparam  DCA_LPARA_05 = `BW_DCA_MATRIX_MAC_INST;
-localparam  DCA_LPARA_01 = 32;
-localparam  DCA_LPARA_08 = 32;
+localparam  DCA_LPARA_08 = `BW_DCA_MATRIX_MAC_LOG;
+localparam  DCA_LPARA_01 = `BW_DCA_MATRIX_MAC_INST;
+localparam  DCA_LPARA_05 = 32;
+localparam  DCA_LPARA_07 = 32;
 
-localparam  DCA_LPARA_06 = 0;
-localparam  DCA_LPARA_02 = 4;
 localparam  DCA_LPARA_04 = 0;
-localparam  DCA_LPARA_09 = 0;
+localparam  DCA_LPARA_09 = 4;
+localparam  DCA_LPARA_02 = 0;
+localparam  DCA_LPARA_03 = 0;
 
 `include "dca_matrix_dim_util.vb"
 `include "dca_matrix_dim_lpara.vb"
@@ -198,37 +198,37 @@ output wire control_rpready;
 output wire [(CONTROL_BW_DATA)-1:0] control_rprdata;
 output wire control_rpslverr;
 
-wire [(DCA_LPARA_03)-1:0] dca_signal_13;
-wire [(DCA_LPARA_00)-1:0] dca_signal_07;
+wire [(DCA_LPARA_06)-1:0] dca_signal_16;
+wire [(DCA_LPARA_00)-1:0] dca_signal_10;
 wire dca_signal_09;
-wire dca_signal_15;
-wire dca_signal_05;
-wire dca_signal_02;
-wire [(DCA_LPARA_07)-1:0] dca_signal_16;
-wire dca_signal_12;
-wire [(DCA_LPARA_05)-1:0] dca_signal_01;
-wire dca_signal_14;
-wire dca_signal_11;
+wire dca_signal_01;
+wire dca_signal_07;
 wire dca_signal_00;
-wire [(DCA_LPARA_01)-1:0] dca_signal_06;
-wire dca_signal_10;
-wire dca_signal_04;
+wire [(DCA_LPARA_08)-1:0] dca_signal_13;
+wire dca_signal_05;
+wire [(DCA_LPARA_01)-1:0] dca_signal_15;
+wire dca_signal_03;
 wire dca_signal_08;
-wire [(DCA_LPARA_08)-1:0] dca_signal_03;
+wire dca_signal_12;
+wire [(DCA_LPARA_05)-1:0] dca_signal_06;
+wire dca_signal_11;
+wire dca_signal_14;
+wire dca_signal_02;
+wire [(DCA_LPARA_07)-1:0] dca_signal_04;
 
 ERVP_APB2MMIOX
 #(
   .BW_ADDR(BW_ADDR),
   .BW_APB_DATA(CONTROL_BW_DATA),
   .ENDIAN_TYPE(MMIO_ENDIAN_TYPE),
-  .BW_CONFIG(DCA_LPARA_03),
+  .BW_CONFIG(DCA_LPARA_06),
   .BW_STATUS(DCA_LPARA_00),
-  .BW_LOG(DCA_LPARA_07),
-  .BW_INST(DCA_LPARA_05),
-  .LOG_FIFO_DEPTH(DCA_LPARA_06),  
-  .INST_FIFO_DEPTH(DCA_LPARA_02),
-  .INPUT_FIFO_DEPTH(DCA_LPARA_04),
-  .OUTPUT_FIFO_DEPTH(DCA_LPARA_09)
+  .BW_LOG(DCA_LPARA_08),
+  .BW_INST(DCA_LPARA_01),
+  .LOG_FIFO_DEPTH(DCA_LPARA_04),  
+  .INST_FIFO_DEPTH(DCA_LPARA_09),
+  .INPUT_FIFO_DEPTH(DCA_LPARA_02),
+  .OUTPUT_FIFO_DEPTH(DCA_LPARA_03)
 )
 i_dca_instance_1
 (
@@ -248,23 +248,23 @@ i_dca_instance_1
 
   .interrupt_list(),
   
-  .smx_core_config(dca_signal_13),
-  .smx_core_status(dca_signal_07),
+  .smx_core_config(dca_signal_16),
+  .smx_core_status(dca_signal_10),
   .smx_clear_request(dca_signal_09),
-  .smx_clear_finish(dca_signal_15),
-  .smx_core_log_wready(dca_signal_05),
-  .smx_core_log_wrequest(dca_signal_02),
-  .smx_core_log_wdata(dca_signal_16),
-  .smx_inst_fifo_rready(dca_signal_12),
-  .smx_inst_fifo_rdata(dca_signal_01),
-  .smx_inst_fifo_rrequest(dca_signal_14),
-  .smx_operation_finish(dca_signal_11),
-  .smx_input_fifo_rready(dca_signal_00),
+  .smx_clear_finish(dca_signal_01),
+  .smx_core_log_wready(dca_signal_07),
+  .smx_core_log_wrequest(dca_signal_00),
+  .smx_core_log_wdata(dca_signal_13),
+  .smx_inst_fifo_rready(dca_signal_05),
+  .smx_inst_fifo_rdata(dca_signal_15),
+  .smx_inst_fifo_rrequest(dca_signal_03),
+  .smx_operation_finish(dca_signal_08),
+  .smx_input_fifo_rready(dca_signal_12),
   .smx_input_fifo_rdata(dca_signal_06),
-  .smx_input_fifo_rrequest(dca_signal_10),
-  .smx_output_fifo_wready(dca_signal_04),
-  .smx_output_fifo_wrequest(dca_signal_08),
-  .smx_output_fifo_wdata(dca_signal_03)
+  .smx_input_fifo_rrequest(dca_signal_11),
+  .smx_output_fifo_wready(dca_signal_14),
+  .smx_output_fifo_wrequest(dca_signal_02),
+  .smx_output_fifo_wdata(dca_signal_04)
 );
 
 DCA_MATRIX_MAC_MMIOX
@@ -340,21 +340,21 @@ i_dca_instance_0
   .mc_slxyresp(mc_slxyresp),
   .mc_slxyrdata(mc_slxyrdata),
   .mc_slxyburden(mc_slxyburden),
-  .control_rmx_core_config(dca_signal_13),
-  .control_rmx_core_status(dca_signal_07),
-  .control_rmx_core_log_wready(dca_signal_05),
-  .control_rmx_core_log_wrequest(dca_signal_02),
-  .control_rmx_core_log_wdata(dca_signal_16),
-  .control_rmx_inst_fifo_rready(dca_signal_12),
-  .control_rmx_inst_fifo_rdata(dca_signal_01),
-  .control_rmx_inst_fifo_rrequest(dca_signal_14),
-  .control_rmx_operation_finish(dca_signal_11),
-  .control_rmx_input_fifo_rready(dca_signal_00),
+  .control_rmx_core_config(dca_signal_16),
+  .control_rmx_core_status(dca_signal_10),
+  .control_rmx_core_log_wready(dca_signal_07),
+  .control_rmx_core_log_wrequest(dca_signal_00),
+  .control_rmx_core_log_wdata(dca_signal_13),
+  .control_rmx_inst_fifo_rready(dca_signal_05),
+  .control_rmx_inst_fifo_rdata(dca_signal_15),
+  .control_rmx_inst_fifo_rrequest(dca_signal_03),
+  .control_rmx_operation_finish(dca_signal_08),
+  .control_rmx_input_fifo_rready(dca_signal_12),
   .control_rmx_input_fifo_rdata(dca_signal_06),
-  .control_rmx_input_fifo_rrequest(dca_signal_10),
-  .control_rmx_output_fifo_wready(dca_signal_04),
-  .control_rmx_output_fifo_wrequest(dca_signal_08),
-  .control_rmx_output_fifo_wdata(dca_signal_03)
+  .control_rmx_input_fifo_rrequest(dca_signal_11),
+  .control_rmx_output_fifo_wready(dca_signal_14),
+  .control_rmx_output_fifo_wrequest(dca_signal_02),
+  .control_rmx_output_fifo_wdata(dca_signal_04)
 );
 
 endmodule

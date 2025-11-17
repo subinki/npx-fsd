@@ -2,15 +2,22 @@
 #include "ervp_printf.h"
 #include "ervp_printf_section.h"
 #include "ervp_core_id.h"
-#include "map_your_matrix_hw.h"
+#include "ervp_matrix_op_sw.h"
+
+#ifdef INCLUDE_DCA
+  #include "map_your_matrix_hw.h"
+  #include "ip_instance_info.h"
+#endif
 
 #include "npx_parser.h"
+#include "npx_layer.h"
 #include "npx_network.h"
 #include "npx_sample.h"
 #include "npx_preprocess.h"
 
 #define FNAME_MAX 256
 
+// char app_name[FNAME_MAX] = "verify_app";
 char app_name[FNAME_MAX] = "mnist_app";
 
 char net_fname[FNAME_MAX];
@@ -26,8 +33,10 @@ int main()
 {
   if (EXCLUSIVE_ID == 0)
   {
-    ervp_mop_mapping_t* mop_mapping = matrix_op_mapping_alloc();
+    ervp_mop_mapping_t *mop_mapping = matrix_op_mapping_alloc();
+#ifdef INCLUDE_DCA
     map_your_matrix_function(mop_mapping);
+#endif
 
     int sample_index = 0;
     sprintf(net_fname, "%s_network.cfg", app_name);
@@ -38,6 +47,7 @@ int main()
     printf_section(SKIP_SIM, "Verify NPX: %s", net_fname);
 
     npx_network_t *net = npx_parse_network_cfg(net_fname, opt_fname);
+    npx_network_print(net);
     npx_network_load_parameters(net, parameter_fname);
     npx_network_map_matrix_operator(net, -1, mop_mapping);
     npx_network_print(net);
@@ -68,6 +78,8 @@ int main()
       }
       sample_index++;
     }
+
+    printf("\n\nVerify NPX Complete");
   }
 
   return 0;

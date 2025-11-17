@@ -41,8 +41,7 @@ UTIL_DIR = ${PLATFORM_DIR}/util
 
 TARGET_DIR?=${CURDIR}/target
 RESULT_DIR?=${UTIL_DIR}/${GERENATRED_DIRNAME}/${GERENATRED_SSW_DIRNAME}
-RESULT_PARENT_DIR=$(call absolute_path,${RESULT_DIR}/..)
-RESULT_DIRNAME=$(notdir ${RESULT_DIR})
+RESULT_DIR_ABS=$(call absolute_path,${RESULT_DIR})
 
 clean:
 	@true
@@ -59,7 +58,7 @@ generated_mkdir:
 	@cd ${UTIL_DIR} && mkdir -p ${GERENATRED_DIRNAME}
 
 generated_ssw_mkdir: generated_mkdir
-	@cd ${RESULT_PARENT_DIR} && mkdir -p ${RESULT_DIRNAME}
+	@mkdir -p ${RESULT_DIR_ABS}
 	@cp -f ${RVX_ENV}/util/gitignore.generated.txt ${RESULT_DIR}/.gitignore
 
 add:

@@ -11,7 +11,7 @@
 // IN ANY FORM, BY ANY MEANS, IN WHOLE OR IN PART, WITHOUT THE
 // COMPLETE PRIOR WRITTEN PERMISSION OF ETRI.
 // ****************************************************************************
-// 2025-08-27
+// 2025-11-05
 // Kyuseung Han (han@etri.re.kr)
 // ****************************************************************************
 // ****************************************************************************
@@ -71,14 +71,14 @@ parameter BW_TENSOR_SCALAR = 33;
 parameter MATRIX_NUM_COL = 4;
 
 localparam  BW_LPI_BURDEN = 1;
-localparam  DCA_LPARA_0 = `BW_DCA_MATRIX_LSU_INST;
-localparam  DCA_LPARA_1 = BW_TENSOR_SCALAR*MATRIX_NUM_COL;
+localparam  DCA_LPARA_1 = `BW_DCA_MATRIX_LSU_INST;
+localparam  DCA_LPARA_0 = BW_TENSOR_SCALAR*MATRIX_NUM_COL;
 
 input wire clk;
 input wire rstnn;
 
 input wire rinst_wvalid;
-input wire [DCA_LPARA_0-1:0] rinst_wdata;
+input wire [DCA_LPARA_1-1:0] rinst_wdata;
 output wire rinst_wready;
 output wire rinst_decode_finish;
 output wire rinst_execute_finish;
@@ -86,13 +86,13 @@ output wire rinst_busy;
 
 output wire rload_tensor_row_wvalid;
 output wire rload_tensor_row_wlast;
-output wire [DCA_LPARA_1-1:0] rload_tensor_row_wdata;
+output wire [DCA_LPARA_0-1:0] rload_tensor_row_wdata;
 input wire rload_tensor_row_wready;
 
 output wire rstore_tensor_row_rvalid;
 output wire rstore_tensor_row_rlast;
 input wire rstore_tensor_row_rready;
-input wire [DCA_LPARA_1-1:0] rstore_tensor_row_rdata;
+input wire [DCA_LPARA_0-1:0] rstore_tensor_row_rdata;
 
 input wire [(2)-1:0] slxqdready;
 output wire slxqvalid;

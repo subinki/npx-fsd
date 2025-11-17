@@ -11,7 +11,7 @@
 // IN ANY FORM, BY ANY MEANS, IN WHOLE OR IN PART, WITHOUT THE
 // COMPLETE PRIOR WRITTEN PERMISSION OF ETRI.
 // ****************************************************************************
-// 2025-08-27
+// 2025-11-05
 // Kyuseung Han (han@etri.re.kr)
 // ****************************************************************************
 // ****************************************************************************
@@ -65,10 +65,10 @@ input wire transpose;
 output wire [BW_TENSOR_MATRIX-1:0] all_rdata_list2d;
 output wire [BW_TENSOR_ROW-1:0] upmost_rdata_list1d;
 
-wire [BW_TENSOR_MATRIX-1:0] dca_signal_1;
+wire [BW_TENSOR_MATRIX-1:0] dca_signal_2;
 
-wire [BW_TENSOR_ROW-1:0] dca_signal_2;
-wire [BW_TENSOR_COL-1:0] dca_signal_0;
+wire [BW_TENSOR_ROW-1:0] dca_signal_0;
+wire [BW_TENSOR_COL-1:0] dca_signal_1;
 
 DCA_MATRIX_REGISTER_TYPE1
 #(
@@ -90,13 +90,13 @@ i_dca_instance_0
   .move_rdata_list(move_rdata_list),
   
   .all_wenable(1'b 0),
-  .all_wdata_list2d(dca_signal_1),
+  .all_wdata_list2d(dca_signal_2),
   
   .downmost_wenable(1'b 0),
-  .downmost_wdata_list1d(dca_signal_2),
+  .downmost_wdata_list1d(dca_signal_0),
   
   .rightmost_wenable(1'b 0),
-  .rightmost_wdata_list1d(dca_signal_0),
+  .rightmost_wdata_list1d(dca_signal_1),
   
   .shift_up(shift_up),
   .shift_left(shift_left),
@@ -106,8 +106,8 @@ i_dca_instance_0
   .upmost_rdata_list1d(upmost_rdata_list1d)
 );
 
-assign dca_signal_1 = 0;
 assign dca_signal_2 = 0;
 assign dca_signal_0 = 0;
+assign dca_signal_1 = 0;
 
 endmodule

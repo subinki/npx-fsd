@@ -7,6 +7,10 @@
 `define BW_DCA_MATRIX_INFO_ADDR 32
 `define DCA_MATRIX_INFO_ADDR_DEFAULT_VALUE 0
 
+// reg dca_matrix_info_aligned
+`define BW_DCA_MATRIX_INFO_ALIGNED 160
+`define DCA_MATRIX_INFO_ALIGNED_DEFAULT_VALUE 0
+
 // reg dca_matrix_info_stride_ls3
 `define BW_DCA_MATRIX_INFO_STRIDE_LS3 32
 `define DCA_MATRIX_INFO_STRIDE_LS3_DEFAULT_VALUE 0
@@ -30,5 +34,13 @@
 // reg dca_matrix_info_addr_lsa_p3
 `define BW_DCA_MATRIX_INFO_ADDR_LSA_P3 3
 `define DCA_MATRIX_INFO_ADDR_LSA_P3_DEFAULT_VALUE 0
+
+// reg dca_matrix_info_bit_offset
+`define BW_DCA_MATRIX_INFO_BIT_OFFSET 3
+`define DCA_MATRIX_INFO_BIT_OFFSET_DEFAULT_VALUE 0
+
+// reg dca_matrix_info_is_binary
+`define BW_DCA_MATRIX_INFO_IS_BINARY 1
+`define DCA_MATRIX_INFO_IS_BINARY_DEFAULT_VALUE 0
 
 `endif

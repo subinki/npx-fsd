@@ -11,7 +11,7 @@
 // IN ANY FORM, BY ANY MEANS, IN WHOLE OR IN PART, WITHOUT THE
 // COMPLETE PRIOR WRITTEN PERMISSION OF ETRI.
 // ****************************************************************************
-// 2025-08-27
+// 2025-11-05
 // Kyuseung Han (han@etri.re.kr)
 // ****************************************************************************
 // ****************************************************************************
@@ -120,12 +120,12 @@ parameter TENSOR_PARA = 0;
 
 localparam  LSU_PARA = 0;
 
-localparam  DCA_LPARA_6 = 1;
-localparam  DCA_LPARA_4 = `BW_DCA_MATRIX_MAC_STATUS;
-localparam  DCA_LPARA_2 = `BW_DCA_MATRIX_MAC_LOG;
-localparam  DCA_LPARA_3 = `BW_DCA_MATRIX_MAC_INST;
-localparam  DCA_LPARA_5 = 32;
-localparam  DCA_LPARA_1 = 32;
+localparam  DCA_LPARA_1 = 1;
+localparam  DCA_LPARA_7 = `BW_DCA_MATRIX_MAC_STATUS;
+localparam  DCA_LPARA_5 = `BW_DCA_MATRIX_MAC_LOG;
+localparam  DCA_LPARA_2 = `BW_DCA_MATRIX_MAC_INST;
+localparam  DCA_LPARA_4 = 32;
+localparam  DCA_LPARA_6 = 32;
 
 `include "dca_matrix_dim_util.vb"
 `include "dca_matrix_dim_lpara.vb"
@@ -186,104 +186,104 @@ input wire mc_slxywreply;
 input wire [(2)-1:0] mc_slxyresp;
 input wire [(MC_BW_DATA)-1:0] mc_slxyrdata;
 input wire [(MC_BW_BURDEN)-1:0] mc_slxyburden;
-input wire [(DCA_LPARA_6)-1:0] control_rmx_core_config;
-output wire [(DCA_LPARA_4)-1:0] control_rmx_core_status;
+input wire [(DCA_LPARA_1)-1:0] control_rmx_core_config;
+output wire [(DCA_LPARA_7)-1:0] control_rmx_core_status;
 input wire control_rmx_clear_request;
 output wire control_rmx_clear_finish;
 input wire control_rmx_log_fifo_wready;
 output wire control_rmx_log_fifo_wrequest;
-output wire [(DCA_LPARA_2)-1:0] control_rmx_log_fifo_wdata;
+output wire [(DCA_LPARA_5)-1:0] control_rmx_log_fifo_wdata;
 input wire control_rmx_inst_fifo_rready;
-input wire [(DCA_LPARA_3)-1:0] control_rmx_inst_fifo_rdata;
+input wire [(DCA_LPARA_2)-1:0] control_rmx_inst_fifo_rdata;
 output wire control_rmx_inst_fifo_rrequest;
 output wire control_rmx_operation_finish;
 input wire control_rmx_input_fifo_rready;
-input wire [(DCA_LPARA_5)-1:0] control_rmx_input_fifo_rdata;
+input wire [(DCA_LPARA_4)-1:0] control_rmx_input_fifo_rdata;
 output wire control_rmx_input_fifo_rrequest;
 input wire control_rmx_output_fifo_wready;
 output wire control_rmx_output_fifo_wrequest;
-output wire [(DCA_LPARA_1)-1:0] control_rmx_output_fifo_wdata;
+output wire [(DCA_LPARA_6)-1:0] control_rmx_output_fifo_wdata;
 
 `include "dca_tensor_scalar_lpara.vb"
 `include "dca_tensor_dim_lpara.vb"
 
 `include "dca_lsu_util.vb"
 
-localparam  DCA_LPARA_0 = MAKE_LSU_READ_ONLY(LSU_PARA);
-localparam  DCA_LPARA_7 = MAKE_LSU_WRITE_ONLY(LSU_PARA);
-
-wire dca_signal_21;
-wire dca_signal_36;
-wire [`BW_DCA_MATRIX_LSU_INST-1:0] dca_signal_25;
-wire dca_signal_06;
-wire dca_signal_28;
-wire dca_signal_09;
-
-wire dca_signal_27;
-wire dca_signal_08;
-wire [BW_TENSOR_ROW-1:0] dca_signal_35;
-wire dca_signal_04;
-
-wire dca_signal_10;
-wire dca_signal_01;
-wire dca_signal_29;
-wire [BW_TENSOR_ROW-1:0] dca_signal_37;
-
-wire dca_signal_15;
-wire dca_signal_33;
-wire [`BW_DCA_MATRIX_LSU_INST-1:0] dca_signal_11;
-wire dca_signal_13;
-wire dca_signal_02;
-wire dca_signal_14;
-
-wire dca_signal_30;
-wire dca_signal_12;
-wire [BW_TENSOR_ROW-1:0] dca_signal_41;
-wire dca_signal_16;
-
-wire dca_signal_07;
-wire dca_signal_39;
-wire dca_signal_38;
-wire [BW_TENSOR_ROW-1:0] dca_signal_20;
-
-wire dca_signal_00;
-wire dca_signal_22;
-wire [`BW_DCA_MATRIX_LSU_INST-1:0] dca_signal_05;
-wire dca_signal_26;
-wire dca_signal_31;
-wire dca_signal_18;
-
-wire dca_signal_23;
-wire dca_signal_24;
-wire [BW_TENSOR_ROW-1:0] dca_signal_40;
-wire dca_signal_34;
+localparam  DCA_LPARA_3 = MAKE_LSU_READ_ONLY(LSU_PARA);
+localparam  DCA_LPARA_0 = MAKE_LSU_WRITE_ONLY(LSU_PARA);
 
 wire dca_signal_32;
-wire dca_signal_19;
-wire dca_signal_17;
+wire dca_signal_05;
+wire [`BW_DCA_MATRIX_LSU_INST-1:0] dca_signal_12;
+wire dca_signal_35;
+wire dca_signal_26;
+wire dca_signal_40;
+
+wire dca_signal_29;
+wire dca_signal_39;
+wire [BW_TENSOR_ROW-1:0] dca_signal_02;
+wire dca_signal_04;
+
+wire dca_signal_09;
+wire dca_signal_28;
+wire dca_signal_31;
 wire [BW_TENSOR_ROW-1:0] dca_signal_03;
+
+wire dca_signal_01;
+wire dca_signal_27;
+wire [`BW_DCA_MATRIX_LSU_INST-1:0] dca_signal_13;
+wire dca_signal_22;
+wire dca_signal_36;
+wire dca_signal_10;
+
+wire dca_signal_41;
+wire dca_signal_17;
+wire [BW_TENSOR_ROW-1:0] dca_signal_20;
+wire dca_signal_00;
+
+wire dca_signal_14;
+wire dca_signal_16;
+wire dca_signal_11;
+wire [BW_TENSOR_ROW-1:0] dca_signal_37;
+
+wire dca_signal_30;
+wire dca_signal_08;
+wire [`BW_DCA_MATRIX_LSU_INST-1:0] dca_signal_19;
+wire dca_signal_38;
+wire dca_signal_34;
+wire dca_signal_33;
+
+wire dca_signal_06;
+wire dca_signal_15;
+wire [BW_TENSOR_ROW-1:0] dca_signal_24;
+wire dca_signal_21;
+
+wire dca_signal_18;
+wire dca_signal_25;
+wire dca_signal_07;
+wire [BW_TENSOR_ROW-1:0] dca_signal_23;
 
 DCA_MATRIX_LSU_XMI1P
 #(
-  .LSU_PARA(DCA_LPARA_0),
+  .LSU_PARA(DCA_LPARA_3),
   .AXI_PARA(MA_BW_DATA),
   .BW_LPI_BURDEN(1),
   .MATRIX_SIZE_PARA(MATRIX_SIZE_PARA),
   .TENSOR_PARA(TENSOR_PARA)
 )
-i_dca_instance_1
+i_dca_instance_0
 (
   .clk(clk),
   .rstnn(rstnn),
   .clear(1'b 0),
   .enable(1'b 1),
-  .busy(dca_signal_21),
+  .busy(dca_signal_32),
 
-  .inst_wvalid(dca_signal_36),
-  .inst_wdata(dca_signal_25),
-  .inst_wready(dca_signal_06),
-  .inst_decode_finish(dca_signal_28),
-  .inst_execute_finish(dca_signal_09),
+  .inst_wvalid(dca_signal_05),
+  .inst_wdata(dca_signal_12),
+  .inst_wready(dca_signal_35),
+  .inst_decode_finish(dca_signal_26),
+  .inst_execute_finish(dca_signal_40),
 
   .slxqdready(ma_slxqdready),
   .slxqvalid(ma_slxqvalid),
@@ -304,24 +304,24 @@ i_dca_instance_1
   .slxyrdata(ma_slxyrdata),
   .slxyburden(ma_slxyburden),
 
-  .load_tensor_row_wvalid(dca_signal_27),
-  .load_tensor_row_wlast(dca_signal_08),
-  .load_tensor_row_wdata(dca_signal_35),
+  .load_tensor_row_wvalid(dca_signal_29),
+  .load_tensor_row_wlast(dca_signal_39),
+  .load_tensor_row_wdata(dca_signal_02),
   .load_tensor_row_wready(dca_signal_04),
 
-  .store_tensor_row_rvalid(dca_signal_10),
-  .store_tensor_row_rlast(dca_signal_01),
-  .store_tensor_row_rready(dca_signal_29),
-  .store_tensor_row_rdata(dca_signal_37)
+  .store_tensor_row_rvalid(dca_signal_09),
+  .store_tensor_row_rlast(dca_signal_28),
+  .store_tensor_row_rready(dca_signal_31),
+  .store_tensor_row_rdata(dca_signal_03)
 );
 
-assign dca_signal_29 = 0;
-assign dca_signal_01 = 0;
-assign dca_signal_37 = 0;
+assign dca_signal_31 = 0;
+assign dca_signal_28 = 0;
+assign dca_signal_03 = 0;
 
 DCA_MATRIX_LSU_XMI1P
 #(
-  .LSU_PARA(DCA_LPARA_0),
+  .LSU_PARA(DCA_LPARA_3),
   .AXI_PARA(MB_BW_DATA),
   .BW_LPI_BURDEN(1),
   .MATRIX_SIZE_PARA(MATRIX_SIZE_PARA),
@@ -333,13 +333,13 @@ i_dca_instance_3
   .rstnn(rstnn),
   .clear(1'b 0),
   .enable(1'b 1),
-  .busy(dca_signal_15),
+  .busy(dca_signal_01),
 
-  .inst_wvalid(dca_signal_33),
-  .inst_wdata(dca_signal_11),
-  .inst_wready(dca_signal_13),
-  .inst_decode_finish(dca_signal_02),
-  .inst_execute_finish(dca_signal_14),
+  .inst_wvalid(dca_signal_27),
+  .inst_wdata(dca_signal_13),
+  .inst_wready(dca_signal_22),
+  .inst_decode_finish(dca_signal_36),
+  .inst_execute_finish(dca_signal_10),
 
   .slxqdready(mb_slxqdready),
   .slxqvalid(mb_slxqvalid),
@@ -360,24 +360,24 @@ i_dca_instance_3
   .slxyrdata(mb_slxyrdata),
   .slxyburden(mb_slxyburden),
   
-  .load_tensor_row_wvalid(dca_signal_30),
-  .load_tensor_row_wlast(dca_signal_12),
-  .load_tensor_row_wdata(dca_signal_41),
-  .load_tensor_row_wready(dca_signal_16),
+  .load_tensor_row_wvalid(dca_signal_41),
+  .load_tensor_row_wlast(dca_signal_17),
+  .load_tensor_row_wdata(dca_signal_20),
+  .load_tensor_row_wready(dca_signal_00),
 
-  .store_tensor_row_rvalid(dca_signal_07),
-  .store_tensor_row_rlast(dca_signal_39),
-  .store_tensor_row_rready(dca_signal_38),
-  .store_tensor_row_rdata(dca_signal_20)
+  .store_tensor_row_rvalid(dca_signal_14),
+  .store_tensor_row_rlast(dca_signal_16),
+  .store_tensor_row_rready(dca_signal_11),
+  .store_tensor_row_rdata(dca_signal_37)
 );
 
-assign dca_signal_38 = 0;
-assign dca_signal_39 = 0;
-assign dca_signal_20 = 0;
+assign dca_signal_11 = 0;
+assign dca_signal_16 = 0;
+assign dca_signal_37 = 0;
 
 DCA_MATRIX_LSU_XMI1P
 #(
-  .LSU_PARA(DCA_LPARA_7),
+  .LSU_PARA(DCA_LPARA_0),
   .AXI_PARA(MC_BW_DATA),
   .BW_LPI_BURDEN(1),
   .MATRIX_SIZE_PARA(MATRIX_SIZE_PARA),
@@ -389,13 +389,13 @@ i_dca_instance_2
   .rstnn(rstnn),
   .clear(1'b 0),
   .enable(1'b 1),
-  .busy(dca_signal_00),
+  .busy(dca_signal_30),
 
-  .inst_wvalid(dca_signal_22),
-  .inst_wdata(dca_signal_05),
-  .inst_wready(dca_signal_26),
-  .inst_decode_finish(dca_signal_31),
-  .inst_execute_finish(dca_signal_18),
+  .inst_wvalid(dca_signal_08),
+  .inst_wdata(dca_signal_19),
+  .inst_wready(dca_signal_38),
+  .inst_decode_finish(dca_signal_34),
+  .inst_execute_finish(dca_signal_33),
 
   .slxqdready(mc_slxqdready),
   .slxqvalid(mc_slxqvalid),
@@ -416,25 +416,25 @@ i_dca_instance_2
   .slxyrdata(mc_slxyrdata),
   .slxyburden(mc_slxyburden),
   
-  .load_tensor_row_wvalid(dca_signal_23),
-  .load_tensor_row_wlast(dca_signal_24),
-  .load_tensor_row_wdata(dca_signal_40),
-  .load_tensor_row_wready(dca_signal_34),
+  .load_tensor_row_wvalid(dca_signal_06),
+  .load_tensor_row_wlast(dca_signal_15),
+  .load_tensor_row_wdata(dca_signal_24),
+  .load_tensor_row_wready(dca_signal_21),
 
-  .store_tensor_row_rvalid(dca_signal_32),
-  .store_tensor_row_rlast(dca_signal_19),
-  .store_tensor_row_rready(dca_signal_17),
-  .store_tensor_row_rdata(dca_signal_03)
+  .store_tensor_row_rvalid(dca_signal_18),
+  .store_tensor_row_rlast(dca_signal_25),
+  .store_tensor_row_rready(dca_signal_07),
+  .store_tensor_row_rdata(dca_signal_23)
 );
 
-assign dca_signal_34 = 0;
+assign dca_signal_21 = 0;
 
 DCA_MATRIX_MAC_MMIOX_MLSU
 #(
   .MATRIX_SIZE_PARA(MATRIX_SIZE_PARA),
   .TENSOR_PARA(TENSOR_PARA)
 )
-i_dca_instance_0
+i_dca_instance_1
 (
   .clk(clk),
   .rstnn(rstnn),
@@ -457,50 +457,50 @@ i_dca_instance_0
   .control_rmx_output_fifo_wrequest(control_rmx_output_fifo_wrequest),
   .control_rmx_output_fifo_wdata(control_rmx_output_fifo_wdata),
 
-  .ma_sinst_wvalid(dca_signal_36),
-	.ma_sinst_wdata(dca_signal_25),
-	.ma_sinst_wready(dca_signal_06),
-	.ma_sinst_decode_finish(dca_signal_28),
-	.ma_sinst_execute_finish(dca_signal_09),
-	.ma_sinst_busy(dca_signal_21),
-	.ma_sload_tensor_row_wvalid(dca_signal_27),
-	.ma_sload_tensor_row_wlast(dca_signal_08),
-	.ma_sload_tensor_row_wdata(dca_signal_35),
+  .ma_sinst_wvalid(dca_signal_05),
+	.ma_sinst_wdata(dca_signal_12),
+	.ma_sinst_wready(dca_signal_35),
+	.ma_sinst_decode_finish(dca_signal_26),
+	.ma_sinst_execute_finish(dca_signal_40),
+	.ma_sinst_busy(dca_signal_32),
+	.ma_sload_tensor_row_wvalid(dca_signal_29),
+	.ma_sload_tensor_row_wlast(dca_signal_39),
+	.ma_sload_tensor_row_wdata(dca_signal_02),
 	.ma_sload_tensor_row_wready(dca_signal_04),
-	.ma_sstore_tensor_row_rvalid(dca_signal_10),
-	.ma_sstore_tensor_row_rlast(dca_signal_01),
-	.ma_sstore_tensor_row_rdata(dca_signal_37),
-	.ma_sstore_tensor_row_rready(dca_signal_29),
+	.ma_sstore_tensor_row_rvalid(dca_signal_09),
+	.ma_sstore_tensor_row_rlast(dca_signal_28),
+	.ma_sstore_tensor_row_rdata(dca_signal_03),
+	.ma_sstore_tensor_row_rready(dca_signal_31),
 
-  .mb_sinst_wvalid(dca_signal_33),
-	.mb_sinst_wdata(dca_signal_11),
-	.mb_sinst_wready(dca_signal_13),
-	.mb_sinst_decode_finish(dca_signal_02),
-	.mb_sinst_execute_finish(dca_signal_14),
-	.mb_sinst_busy(dca_signal_15),
-	.mb_sload_tensor_row_wvalid(dca_signal_30),
-	.mb_sload_tensor_row_wlast(dca_signal_12),
-	.mb_sload_tensor_row_wdata(dca_signal_41),
-	.mb_sload_tensor_row_wready(dca_signal_16),
-	.mb_sstore_tensor_row_rvalid(dca_signal_07),
-	.mb_sstore_tensor_row_rlast(dca_signal_39),
-	.mb_sstore_tensor_row_rdata(dca_signal_20),
-	.mb_sstore_tensor_row_rready(dca_signal_38),
+  .mb_sinst_wvalid(dca_signal_27),
+	.mb_sinst_wdata(dca_signal_13),
+	.mb_sinst_wready(dca_signal_22),
+	.mb_sinst_decode_finish(dca_signal_36),
+	.mb_sinst_execute_finish(dca_signal_10),
+	.mb_sinst_busy(dca_signal_01),
+	.mb_sload_tensor_row_wvalid(dca_signal_41),
+	.mb_sload_tensor_row_wlast(dca_signal_17),
+	.mb_sload_tensor_row_wdata(dca_signal_20),
+	.mb_sload_tensor_row_wready(dca_signal_00),
+	.mb_sstore_tensor_row_rvalid(dca_signal_14),
+	.mb_sstore_tensor_row_rlast(dca_signal_16),
+	.mb_sstore_tensor_row_rdata(dca_signal_37),
+	.mb_sstore_tensor_row_rready(dca_signal_11),
 
-  .mc_sinst_wvalid(dca_signal_22),
-	.mc_sinst_wdata(dca_signal_05),
-	.mc_sinst_wready(dca_signal_26),
-	.mc_sinst_decode_finish(dca_signal_31),
-	.mc_sinst_execute_finish(dca_signal_18),
-	.mc_sinst_busy(dca_signal_00),
-	.mc_sload_tensor_row_wvalid(dca_signal_23),
-	.mc_sload_tensor_row_wlast(dca_signal_24),
-	.mc_sload_tensor_row_wdata(dca_signal_40),
-	.mc_sload_tensor_row_wready(dca_signal_34),
-	.mc_sstore_tensor_row_rvalid(dca_signal_32),
-	.mc_sstore_tensor_row_rlast(dca_signal_19),
-	.mc_sstore_tensor_row_rdata(dca_signal_03),
-	.mc_sstore_tensor_row_rready(dca_signal_17)
+  .mc_sinst_wvalid(dca_signal_08),
+	.mc_sinst_wdata(dca_signal_19),
+	.mc_sinst_wready(dca_signal_38),
+	.mc_sinst_decode_finish(dca_signal_34),
+	.mc_sinst_execute_finish(dca_signal_33),
+	.mc_sinst_busy(dca_signal_30),
+	.mc_sload_tensor_row_wvalid(dca_signal_06),
+	.mc_sload_tensor_row_wlast(dca_signal_15),
+	.mc_sload_tensor_row_wdata(dca_signal_24),
+	.mc_sload_tensor_row_wready(dca_signal_21),
+	.mc_sstore_tensor_row_rvalid(dca_signal_18),
+	.mc_sstore_tensor_row_rlast(dca_signal_25),
+	.mc_sstore_tensor_row_rdata(dca_signal_23),
+	.mc_sstore_tensor_row_rready(dca_signal_07)
 );
 
 endmodule

@@ -11,9 +11,9 @@
 // IN ANY FORM, BY ANY MEANS, IN WHOLE OR IN PART, WITHOUT THE
 // COMPLETE PRIOR WRITTEN PERMISSION OF ETRI.
 // ****************************************************************************
-// 2025-08-27
+// 2025-11-05
 // Kyuseung Han (han@etri.re.kr)
 // ****************************************************************************
 // ****************************************************************************
 
-localparam BW_BLOCKED_STEP_INST = MATRIX_MAX_DIM + MATRIX_NUM_ROW + MATRIX_NUM_COL + 1 + `BW_DCA_MATRIX_MAC_OPCODE;
+localparam BW_BLOCKED_STEP_INST = 1 + `BW_DCA_MATRIX_MAC_OPCODE;
